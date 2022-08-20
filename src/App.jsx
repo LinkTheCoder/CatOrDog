@@ -41,8 +41,8 @@ function App() {
 					<div className="opacity-75 italic">
 						By subscribing, you agree with Revue's <a target="_blank" href="https://www.getrevue.co/terms" className="hover:opacity-80 duration-150">Terms of Service</a> and <a target="_blank" href="https://www.getrevue.co/privacy" className="hover:opacity-80 duration-150">Privacy Policy</a>.
 					</div>
-					<div class="flex flex-col justify-center items-center m-2 mx-3 hover:opacity-80 duration-150">
-					<a href="#">
+					<div className="flex flex-col justify-center items-center m-2">
+					<a href="#" className="mx-3 hover:opacity-80 duration-150">
 					<FaTwitter size="2em"/>
 					</a>    
 					</div>
