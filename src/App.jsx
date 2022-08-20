@@ -48,8 +48,9 @@ function App() {
 					<p className="mb-4 md:mb-0 md:text-xl">Built with 💙 by Link Häggman</p>
 
 					<div className="flex -mx-6">
-						<a href="#" className="mx-3 hover:opacity-80 duration-150">About us</a> | 
-						<a href="#" className="mx-3 hover:opacity-80 duration-150">Privacy</a> | 
+						
+						<a href="#" className="mx-3 hover:opacity-80 duration-150">FQA</a> | 
+						<a href="#" className="mx-3 hover:opacity-80 duration-150">Community</a> | 
 						<a href="#" className="mx-3 hover:opacity-80 duration-150">Contact</a>
 					</div>
 				</div>
