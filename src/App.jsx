@@ -1,3 +1,5 @@
+import {FaTwitter} from "react-icons/fa";
+
 function App() {
 	return (
 		<div className="min-h-screen flex flex-col text-white">
@@ -39,7 +41,11 @@ function App() {
 					<div className="opacity-75 italic">
 						By subscribing, you agree with Revue's <a target="_blank" href="https://www.getrevue.co/terms" className="hover:opacity-80 duration-150">Terms of Service</a> and <a target="_blank" href="https://www.getrevue.co/privacy" className="hover:opacity-80 duration-150">Privacy Policy</a>.
 					</div>
-
+					<div class="flex flex-col justify-center items-center m-2 mx-3 hover:opacity-80 duration-150">
+					<a href="#">
+					<FaTwitter size="2em"/>
+					</a>    
+					</div>
 				</form>
 			</main>
 
@@ -48,7 +54,6 @@ function App() {
 					<p className="mb-4 md:mb-0 md:text-xl">Built with 💙 by Link Häggman</p>
 
 					<div className="flex -mx-6">
-						
 						<a href="#" className="mx-3 hover:opacity-80 duration-150">FQA</a> | 
 						<a href="#" className="mx-3 hover:opacity-80 duration-150">Community</a> | 
 						<a href="#" className="mx-3 hover:opacity-80 duration-150">Contact</a>
