@@ -1,7 +1,7 @@
 import {FaTwitter} from "react-icons/fa";
 import {Routes, Route} from 'react-router-dom'
 
-function Home() {
+function App() {
 	return (
 		<div className="min-h-screen flex flex-col text-white">
 			<main className="container mx-auto px-6 pt-16 flex-1 text-center">
@@ -64,5 +64,5 @@ function Home() {
 	)
 }
 
-export default Home
+export default App
 
