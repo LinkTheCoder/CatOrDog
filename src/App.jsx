@@ -1,6 +1,7 @@
 import {FaTwitter} from "react-icons/fa";
+import {Routes, Route} from 'react-router-dom'
 
-function App() {
+function Home() {
 	return (
 		<div className="min-h-screen flex flex-col text-white">
 			<main className="container mx-auto px-6 pt-16 flex-1 text-center">
@@ -54,9 +55,8 @@ function App() {
 					<p className="mb-4 md:mb-0 md:text-xl">Built with 💙 by Link Häggman</p>
 
 					<div className="flex -mx-6">
-						<a href="#" className="mx-3 hover:opacity-80 duration-150">FQA</a> | 
-						<a href="#" className="mx-3 hover:opacity-80 duration-150">Community</a> | 
-						<a href="#" className="mx-3 hover:opacity-80 duration-150">Contact</a>
+	
+
 					</div>
 				</div>
 			</footer>
@@ -64,4 +64,5 @@ function App() {
 	)
 }
 
-export default App
+export default Home
+
