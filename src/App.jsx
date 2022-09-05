@@ -1,5 +1,4 @@
 import {FaTwitter} from "react-icons/fa";
-import {Routes, Route} from 'react-router-dom'
 
 function App() {
 	return (
