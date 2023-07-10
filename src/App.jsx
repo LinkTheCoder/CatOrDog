@@ -1,67 +1,117 @@
-import {FaTwitter} from "react-icons/fa";
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+let renderCount = 0
 
-function App() {
-	return (
-		<div className="min-h-screen flex flex-col text-white">
-			<main className="container mx-auto px-6 pt-16 flex-1 text-center">
+export default function ReactHookFormAdvanced() {
+  const {
+    register,
+    handleSubmit,
+    formState: { touchedFields, isDirty, isValid, dirtyFields, isSubmitted, errors },
+    watch
+  } = useForm();
 
-				<h2 className="text-2xl md:text-3xl lg:text-5xl uppercase">Dear SH,</h2>
-				<h1 className="text-2xl md:text-5xl lg:text-7xl uppercase font-black mb-8">Watson's Mystery Mail</h1>
+  const [data, setData] = useState('');
+  const watchIsDeveloper = watch('isDeveloper');
+  renderCount += 1
+  return (
+    <div className='w-full flex justify-center items-center p-8'>
+      <div className='w-2/3 shadow-lg rounded-md bg-white p-8 flex flex-col justify-start' style={{ height: '700px' }}>
+        <h2 className='text-center font-medium text-2xl mb-4'>
+          React Hook Form
+        </h2>
+        Render Count -- {renderCount}
+        <form
+          onSubmit={handleSubmit(setData)}
+          className='flex flex-1 flex-col justify-evenly'
+        >
+          <input
+            className='border-2 outline-none p-2 rounded-md'
+            placeholder='Name'
+            {...register('name')}
+          />
 
-				<p className="text-base md:text-lg lg:text-2xl mb-8">Mail-Based Victorian Mysteries directly to your inbox!</p>
+<input
+ className="border-2 outline-none p-2 rounded-md"
+ placeholder="Email"
+ {...register("email", {
+ pattern: {
+   value: /^.*.com$/,
+   message: 'Email must end with .com'
+ }
+ })}
+ /><span className="text-sm text-red-700">
+   {errors?.email?.message}
+</span>
 
-				<div className="text-lg md:text-2xl lg:text-3xl py-2 px-4 md:py-4 md:px-10 lg:py-6 lg:px-12 bg-white bg-opacity-20 w-fit mx-auto mb-8 rounded-full">
-					2000+ members 🕵️
-				</div>
+<input
+  className="border-2 outline-none p-2 rounded-md"
+  placeholder="Phone Number"
+  {...register("phoneNumber", {
+    minLength: {
+      value: 10,
+      message: 'Phone Number must be 10 digits'
+    }
+  })}
+/>
+<span className="text-sm text-red-700">
+  {errors?.phoneNumber?.message}
+</span>
+          <div>
+            <span className='mr-4'>
+              Are you a developer?
+            </span>
+            <input type='checkbox' {...register('isDeveloper')} />
+          </div>
+          {
+            watchIsDeveloper ?
+              <div className='flex w-full '>
+                <input
+                  className='flex-1 border-2 outline-none p-2 rounded-md mr-2'
+                  placeholder='Experience (Years)'
+                  {...register('exp_years', {
+					maxLength: {
+					  value: 2,
+					  message: 'Experience years must be two digits'
+					}})}
+				   />
+                <input
+                  className='flex-1 border-2 outline-none p-2 rounded-md'
+                  placeholder='Experience (Months)'
+                  {...register('exp_months', {
+					max: {
+					  value: 11,
+					  message: 'Experience months must be less than 12'
+					}})} />
+              </div>
+              : null
+          }
+		  <span className="text-sm text-red-700">
+				   {errors?.exp_years?.message}
+				 </span><span className="text-right text-sm text-red-700">
+				   {errors?.exp_months?.message}
+				 </span>
 
-				<form 
-					action="https://www.getrevue.co/profile/linkhaggman/add_subscriber" 
-					method="post" 
-					id="revue-form"
-					name="revue-form"
-					target="_blank">
+          <button
+            className=' flex justify-center p-2 rounded-md
+            w-1/2 self-center bg-gray-900  text-white hover:bg-gray-800'
+            type='submit'
+          >
+            <span>
+              Submit
+            </span>
+          </button>
+        </form>
 
-					<div className="flex flex-col md:flex-row justify-center mb-4">
-						<input
-							placeholder="Your email address..."
-							type="email"
-							name="member[email]"
-							id="member_email"
-							className="text-2xl placeholder:text-gray-400 placeholder:italic py-4 px-6 md:px-10 lg:py-6 lg:px-12 bg-white bg-opacity-20 focus:bg-opacity-20 duration-150 md:rounded-tr-none md:rounded-br-none rounded-full outline-none mb-4 md:mb-0"
-						/>
-						<input
-							type="submit"
-							value="Join Today"
-							name="member[subscribe]"
-							id="member_submit"
-							className="bg-primary md:rounded-tl-none md:rounded-bl-none rounded-full text-2xl py-4 px-6 md:px-10 lg:py-6 lg:px-12 font-bold uppercase cursor-pointer hover:opacity-75 duration-150"
-						/>
-					</div>
+        <p className='w-4/5'> <strong> Data: </strong> {JSON.stringify(data)} </p>
+        <p> <strong> Is Valid: </strong> {JSON.stringify(isValid)}</p>
+        <p> <strong> Is Dirty : </strong> {JSON.stringify(isDirty)} </p>
+        <p> <strong> Is Submited: </strong> {JSON.stringify(isSubmitted)}</p>
+        <p> <strong> Errors: </strong> {JSON.stringify(errors?.email?.message)}</p>
+        <p> <strong> Dirty Fields : </strong> {JSON.stringify(dirtyFields)} </p>
+        <p> <strong> Touched Fields: </strong> {JSON.stringify(touchedFields)} </p>
+        <p> <strong> Watching Is Developer: </strong> {JSON.stringify(watchIsDeveloper)}</p>
 
-					<div className="opacity-75 italic">
-						By subscribing, you agree with Revue's <a target="_blank" href="https://www.getrevue.co/terms" className="hover:opacity-80 duration-150">Terms of Service</a> and <a target="_blank" href="https://www.getrevue.co/privacy" className="hover:opacity-80 duration-150">Privacy Policy</a>.
-					</div>
-					<div className="flex flex-col justify-center items-center m-2">
-					<a href="#" className="mx-3 hover:opacity-80 duration-150">
-					<FaTwitter size="2em"/>
-					</a>    
-					</div>
-				</form>
-			</main>
-
-			<footer className="container mx-auto p-6">
-				<div className="flex flex-col md:flex-row items-center justify-between">
-					<p className="mb-4 md:mb-0 md:text-xl">Built with 💙 by Link Häggman</p>
-
-					<div className="flex -mx-6">
-	
-
-					</div>
-				</div>
-			</footer>
-		</div>	
-	)
+      </div>
+    </div>
+  );
 }
-
-export default App
-

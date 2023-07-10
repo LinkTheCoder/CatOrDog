@@ -3,9 +3,5 @@
 @tailwind utilities;
 
 body {
-	background-image: url('./bg.jpg');
-	background-size: cover;
-	background-position: top center;
-	background: linear-gradient(rgb(0,0,0,0.5), rgb(0,0,0,0.5)), url('./bg.jpg');  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(rgb(0,0,0,0.5), rgb(0,0,0,0.5)), url('./bg.jpg'); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background-color: #f5f5f5;
 }
