@@ -110,7 +110,6 @@ export default function ReactHookFormAdvanced() {
         <p> <strong> Dirty Fields : </strong> {JSON.stringify(dirtyFields)} </p>
         <p> <strong> Touched Fields: </strong> {JSON.stringify(touchedFields)} </p>
         <p> <strong> Watching Is Developer: </strong> {JSON.stringify(watchIsDeveloper)}</p>
-
       </div>
     </div>
   );
